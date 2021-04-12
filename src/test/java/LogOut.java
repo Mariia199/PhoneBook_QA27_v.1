@@ -11,16 +11,20 @@ public class LogOut extends TestBase {
     @BeforeMethod
     public void precondition()
     {
-        wd.findElement(By.linkText("LOGIN")).click();
-        List<WebElement> inputs = wd.findElements(By.tagName("input"));
-        fillByElement(inputs.get(0), "mon447233@mail.com");
-        fillByElement(inputs.get(1), "Mon12$447233");
-        pause(7000);
+        if(isElement(By.cssSelector("[href='/login']"))){
+            logIn("mon447233@mail.com", "Mon12$447233");
+        }
 
-        List<WebElement>buttons = wd.findElements(By.tagName("button"));
-        buttons.get(0).click();
-        pause(1000);
     }
+    @Test
+    public void LogOutTest2()
+    {
+        wd.findElement(By.cssSelector("button")).click();
+
+    }
+
+
+
     @Test
     public void logOutTest()
     {

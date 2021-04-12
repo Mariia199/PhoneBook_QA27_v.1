@@ -25,4 +25,20 @@ public class Registration extends TestBase{
         String text = wd.findElement(By.tagName("button")).getText();
         Assert.assertEquals(text, "Sign Out");
     }
+    @Test
+    public void registrTest2()
+    {
+        wd.findElement(By.cssSelector("[href='/login']")).click();
+        int index = (int)((System.currentTimeMillis()/1000)%3600);
+        String email = "Tom"+index+"@gmail.com";
+        String password = "Tom12345$"+index;
+        fillByLocator(By.cssSelector("input[placeholder='Email']"), email);
+        fillByLocator(By.cssSelector("input[placeholder='Password']"), password);
+        pause(5000);
+
+        wd.findElement(By.cssSelector("button:last-of-type")).click();
+        pause(1000);
+        String text = wd.findElement(By.tagName("button")).getText();
+        Assert.assertEquals(text, "Sign Out");
+    }
 }

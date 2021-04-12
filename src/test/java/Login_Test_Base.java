@@ -23,6 +23,26 @@ public class Login_Test_Base extends TestBase {
             String text = wd.findElement(By.tagName("button")).getText();
             Assert.assertEquals(text, "Sign Out");
         }
+    @Test
+    public void loginTest2()
+    {
+     //   wd.findElement(By.linkText("LOGIN")).click();
+        wd.findElement(By.cssSelector("[href='/login']")).click();
+        fillByLocator(By.cssSelector("input[placeholder='Email']"), "mon447233@mail.com");
+        fillByLocator(By.cssSelector("[placeholder='Password']"),"Mon12$447233" );
+
+        wd.findElement(By.cssSelector("button:first-of-type")).click();
+
+
+        pause(7000);
+
+     //   List<WebElement>buttons = wd.findElements(By.tagName("button"));
+     //   buttons.get(0).click();
+      //  pause(1000);
+
+        String text = wd.findElement(By.tagName("button")).getText();
+        Assert.assertEquals(text, "Sign Out");
+    }
 
 }
 
